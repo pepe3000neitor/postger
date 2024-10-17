@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "8080:80"
+
+  node:
+    build:
+      context: ./node
+    ports:
+      - "3000:3000"
+    environment:
+      - POSTGRES_USER=Hugo
+      - POSTGRES_PASSWORD=Chica
+      - POSTGRES_DB=Hugodb
